@@ -63,11 +63,11 @@ version=@extversion@ (It's ok to left as is, but you can also update to match yo
 4. Install extension in Ghidra 
 Click File -> Install Extension
 
-<img src="images/install_ext.jpg" width="30%">
+<img src="images/install_ext.jpg" width="50%">
 
 If the Extension is already there, you can enable it. If it is now shown, click "+" to install the zip file created in step 3.
 
-<img src="images/install_ext2.jpg" width="30%">
+<img src="images/install_ext2.jpg" width="50%">
 
 5. Check if go1.25.gdt exists in your installed Ghidra. If not, you will see below messages during analysis and the functions are not renamed.
 <b>"Missing goland .gdt archive for 1.25, no fallback DWARF info, unable to extract Golang RTTI info."</b>
@@ -124,11 +124,11 @@ a. Start Script Manager in Ghidra by clicking Window -> Script Manager
 b. Add script directories
 Click "Manage Script Directories" and add the script directory "ghidra_scripts".
 
-<img src="images/manage_script_dir.jpg" width="50%">
+<img src="images/manage_script_dir.jpg" width="80%">
 
 c. Run RenameGoSymbols.py by clicking "play". You will need to point to the symbols.json generated in Step 3 to complete the step.
 
-<img src="images/script_manager.jpg" width="50%">
+<img src="images/script_manager.jpg" width="80%">
 
 <pre>
 Sample outputs:
@@ -169,7 +169,7 @@ Reference: https://github.com/LaurieWired/GhidraMCP
 First download the released zip files and then install it using steps similar to step 2. Re-start Ghidra after installation.
 Copilot actually gave me much more complicated instructions including compiling golang-ghidra and other modules. However, I found at the end that I could simply install the zip file directly.
 
-<img src="images/install_ghidra_mcp.jpg" width="30%">
+<img src="images/install_ghidra_mcp.jpg" width="50%">
 
 a. Install virtual environment for Python 3.x. 
 I used Python 3.13 for the virutal environment.
@@ -217,7 +217,7 @@ Below steps need to run every time you run the setup
 
 3. Ask "Can you connect with Ghidra"?
 
-<img src="images/claude_connect_with_ghidra.jpg" width="50%">
+<img src="images/claude_connect_with_ghidra.jpg" width="80%">
 
 Now you are ready to rock and roll!
 
@@ -225,7 +225,7 @@ Now you are ready to rock and roll!
 In order to test Claude's analysis skill, I tried to ask it to analyze the nonce construction for box 2. Note that it was not correct!
 However, if you continue to work with the AI and re-anlayze, I am sure it will get it quickly.
 
-<img src="images/claude_box2_nonce_attempt1.jpg" width="30%">
+<img src="images/claude_box2_nonce_attempt1.jpg" width="50%">
 
-<img src="images/nonce_construction_attempt1.svg" width="50%">
+<img src="images/nonce_construction_attempt1.svg" width="80%">
 
