@@ -41,7 +41,7 @@ e.g. kill -9 5421
 
 <h2>2. Install GolangAnalyzerExtension </h2>
 Reference: https://github.com/mooncat-greenpy/Ghidra_GolangAnalyzerExtension
-Credit to Michelle Duell for finding this extension. I did not use this extension during the challenge,
+Credit to Michelle Duell for sharing this extension. I did not use this extension during the challenge,
 but using GoReSym instead. However, after installing this extension, I believe this is a simpler way
 to rename variables and identify many of the Go internal data structures. If you use this method,
 you can skip step 3 and 4 below.
@@ -85,7 +85,8 @@ You can keep most analysis options as default. You should see the function names
 
 <h2>3. Install GoReSym for symbol analysis</h2>
 Reference: https://github.com/mandiant/GoReSym
-git clone https://github.com/mandiant/GoReSym.git
+
+<pre>git clone https://github.com/mandiant/GoReSym.git</pre>
 
 <b>Note: this is not needed if you install GolangAnalyzerExtension in Step 2!</b>
 
