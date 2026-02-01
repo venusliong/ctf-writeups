@@ -124,11 +124,11 @@ a. Start Script Manager in Ghidra by clicking Window -> Script Manager
 b. Add script directories
 Click "Manage Script Directories" and add the script directory "ghidra_scripts".
 
-<img src="images/manage_script_dir.jpg" width="80%">
+<img src="images/manage_script_dir.jpg">
 
 c. Run RenameGoSymbols.py by clicking "play". You will need to point to the symbols.json generated in Step 3 to complete the step.
 
-<img src="images/script_manager.jpg" width="80%">
+<img src="images/script_manager.jpg">
 
 <pre>
 Sample outputs:
@@ -225,7 +225,7 @@ Now you are ready to rock and roll!
 In order to test Claude's analysis skill, I tried to ask it to analyze the nonce construction for box 2. Note that it was not correct!
 However, if you continue to work with the AI and re-anlayze, I am sure it will get it quickly.
 
-<img src="images/claude_box2_nonce_attempt1.jpg" width="50%">
+<img src="images/claude_box2_nonce_attempt1.jpg" width="80%">
 
-<img src="images/nonce_construction_attempt1.svg" width="80%">
+<img src="images/nonce_construction_attempt1.svg">
 
