@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 14px; fill: #333; }
+      .small-label { font-family: Arial, sans-serif; font-size: 12px; fill: #666; }
+      .box { fill: #f0f0f0; stroke: #333; stroke-width: 2; }
+      .random-box { fill: #4CAF50; stroke: #2E7D32; stroke-width: 2; }
+      .zero-box { fill: #FFC107; stroke: #F57C00; stroke-width: 2; }
+      .arrow { fill: none; stroke: #333; stroke-width: 2; marker-end: url(#arrowhead); }
+      .warning-box { fill: #ffebee; stroke: #c62828; stroke-width: 2; }
+      .code-text { font-family: 'Courier New', monospace; font-size: 11px; fill: #333; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" class="title" text-anchor="middle">NaCl Secretbox Nonce Construction Vulnerability</text>
+  
+  <!-- Step 1: crypto/rand.Read() -->
+  <text x="50" y="70" class="label">Step 1: crypto/rand.Read() generates random bytes</text>
+  <rect x="50" y="80" width="600" height="40" class="box" rx="5"/>
+  <text x="60" y="105" class="code-text">crypto/rand.Read() → returns random byte slice</text>
+  
+  <!-- Arrow -->
+  <path d="M 350 120 L 350 150" class="arrow"/>
+  
+  <!-- Step 2: Extract only 7 bytes -->
+  <text x="50" y="170" class="label">Step 2: Code takes only first 7 bytes (max)</text>
+  <rect x="50" y="180" width="600" height="40" class="box" rx="5"/>
+  <text x="60" y="205" class="code-text">cmp x9,#0x7 ; csel x2,x9,x11,lt  →  length = min(actual_length, 7)</text>
+  
+  <!-- Arrow -->
+  <path d="M 350 220 L 350 250" class="arrow"/>
+  
+  <!-- Step 3: Nonce buffer visualization -->
+  <text x="50" y="270" class="label">Step 3: 24-byte nonce buffer construction</text>
+  
+  <!-- Nonce buffer boxes -->
+  <g id="nonce-buffer">
+    <!-- First 7 bytes - random -->
+    <rect x="50" y="290" width="30" height="50" class="random-box"/>
+    <rect x="80" y="290" width="30" height="50" class="random-box"/>
+    <rect x="110" y="290" width="30" height="50" class="random-box"/>
+    <rect x="140" y="290" width="30" height="50" class="random-box"/>
+    <rect x="170" y="290" width="30" height="50" class="random-box"/>
+    <rect x="200" y="290" width="30" height="50" class="random-box"/>
+    <rect x="230" y="290" width="30" height="50" class="random-box"/>
+    
+    <!-- Remaining 17 bytes - zeros -->
+    <rect x="260" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="290" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="320" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="350" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="380" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="410" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="440" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="470" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="500" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="530" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="560" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="590" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="620" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="650" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="680" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="710" y="290" width="30" height="50" class="zero-box"/>
+    <rect x="740" y="290" width="30" height="50" class="zero-box"/>
+    
+    <!-- Labels inside boxes -->
+    <text x="65" y="320" class="small-label" text-anchor="middle">R</text>
+    <text x="95" y="320" class="small-label" text-anchor="middle">R</text>
+    <text x="125" y="320" class="small-label" text-anchor="middle">R</text>
+    <text x="155" y="320" class="small-label" text-anchor="middle">R</text>
+    <text x="185" y="320" class="small-label" text-anchor="middle">R</text>
+    <text x="215" y="320" class="small-label" text-anchor="middle">R</text>
+    <text x="245" y="320" class="small-label" text-anchor="middle">R</text>
+    
+    <text x="275" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="305" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="335" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="365" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="395" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="425" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="455" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="485" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="515" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="545" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="575" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="605" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="635" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="665" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="695" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="725" y="320" class="small-label" text-anchor="middle">0</text>
+    <text x="755" y="320" class="small-label" text-anchor="middle">0</text>
+  </g>
+  
+  <!-- Byte indices -->
+  <text x="65" y="360" class="small-label" text-anchor="middle">0</text>
+  <text x="95" y="360" class="small-label" text-anchor="middle">1</text>
+  <text x="125" y="360" class="small-label" text-anchor="middle">2</text>
+  <text x="155" y="360" class="small-label" text-anchor="middle">3</text>
+  <text x="185" y="360" class="small-label" text-anchor="middle">4</text>
+  <text x="215" y="360" class="small-label" text-anchor="middle">5</text>
+  <text x="245" y="360" class="small-label" text-anchor="middle">6</text>
+  <text x="455" y="360" class="small-label" text-anchor="middle">...</text>
+  <text x="755" y="360" class="small-label" text-anchor="middle">23</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="380" width="20" height="20" class="random-box"/>
+  <text x="80" y="395" class="small-label">= Random bytes from crypto/rand (7 bytes)</text>
+  
+  <rect x="350" y="380" width="20" height="20" class="zero-box"/>
+  <text x="380" y="395" class="small-label">= Zero bytes (17 bytes)</text>
+  
+  <!-- Arrow -->
+  <path d="M 400 410 L 400 440" class="arrow"/>
+  
+  <!-- Step 4: secretbox.Seal call -->
+  <text x="50" y="460" class="label">Step 4: Nonce passed to secretbox.Seal()</text>
+  <rect x="50" y="470" width="700" height="40" class="box" rx="5"/>
+  <text x="60" y="495" class="code-text">secretbox.Seal(out, message, &amp;nonce[24_bytes], &amp;key) at 0x100220b90</text>
+  
+  <!-- Warning box -->
+  <rect x="50" y="530" width="700" height="60" class="warning-box" rx="5"/>
+  <text x="400" y="550" class="label" text-anchor="middle" style="fill: #c62828; font-weight: bold;">⚠ SECURITY VULNERABILITY ⚠</text>
+  <text x="400" y="570" class="small-label" text-anchor="middle">Nonce space reduced from 2^192 to ~2^56 (only 7 random bytes)</text>
+  <text x="400" y="585" class="small-label" text-anchor="middle">High probability of nonce reuse → Encryption can be broken!</text>
+</svg>
